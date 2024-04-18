@@ -41,7 +41,6 @@ public class JobVacanciesFilterTests extends TestBase {
     }
 
     @Test
-    @Disabled
     @Feature("Common job vacancies options")
     @Story("Check common filers for vacancies")
     @Owner("egorovaa")
@@ -73,7 +72,6 @@ public class JobVacanciesFilterTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by hot option enable")
     void filterVacanciesByHotOptionTest() {
-        assertThat(true).isFalse();
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
