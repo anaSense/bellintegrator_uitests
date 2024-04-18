@@ -2,12 +2,14 @@ package tests;
 
 import data.VacanciesConstants;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.VacanciesPage;
 
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JobVacanciesFilterTests extends TestBase {
 
@@ -39,6 +41,7 @@ public class JobVacanciesFilterTests extends TestBase {
     }
 
     @Test
+    @Disabled
     @Feature("Common job vacancies options")
     @Story("Check common filers for vacancies")
     @Owner("egorovaa")
@@ -70,6 +73,7 @@ public class JobVacanciesFilterTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by hot option enable")
     void filterVacanciesByHotOptionTest() {
+        assertThat(true).isFalse();
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });

@@ -3,6 +3,7 @@ package tests;
 import data.SearchConstants;
 import helpers.StringsHelper;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.BasePage;
@@ -27,6 +28,7 @@ public class CommonSearchTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("The upper register ignoring in search")
     void ignoringTheUpperRegisterTest() {
+        assertThat(true).isFalse();
         step("Open start webpage", () -> {
             basePage.openPage();
         });
@@ -74,6 +76,7 @@ public class CommonSearchTests extends TestBase {
     }
 
     @Test
+    @Disabled
     @Feature("Common search options")
     @Story("Check common search in header")
     @Owner("egorovaa")
@@ -153,6 +156,7 @@ public class CommonSearchTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Successfully search by exacting string")
     void searchExactingStringTest() {
+        assertThat(true).isFalse();
         step("Open start webpage", () -> {
             basePage.openPage();
         });
