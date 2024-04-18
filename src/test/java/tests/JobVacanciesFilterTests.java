@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import pages.VacanciesPage;
 
 import static io.qameta.allure.Allure.step;
+import static java.lang.String.format;
 
 public class JobVacanciesFilterTests extends TestBase {
 
@@ -22,14 +23,16 @@ public class JobVacanciesFilterTests extends TestBase {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step("Choose the specific specialization", () -> {
+        step(format("Choose the specific specialization \"%s\"",
+                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
             vacanciesPage.clickToSpecializationBtn();
             vacanciesPage.chooseSpecializationOption(VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
         step("Click search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step("Check found vacancies specialization with chose filter", () -> {
+        step(format("Сhecking of found vacancies by filter \"%s\"",
+                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
             vacanciesPage.checkSearchedVacanciesIsMatchToSpecializationFilter
                     (VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
@@ -45,14 +48,16 @@ public class JobVacanciesFilterTests extends TestBase {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step("Choose the specific location", () -> {
+        step(format("Choose the specific location \"%s\"",
+                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.clickToLocationBtn();
             vacanciesPage.chooseLocationOption(VacanciesConstants.LOCATION_FILER_VALUE);
         });
         step("Click search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step("Check found vacancies location with chose filter", () -> {
+        step(format("Сhecking of found vacancies by filter \"%s\"",
+                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.checkSearchedVacanciesIsMatchToLocationFilter
                     (VacanciesConstants.LOCATION_FILER_VALUE);
         });
@@ -74,7 +79,7 @@ public class JobVacanciesFilterTests extends TestBase {
         step("Click search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step("Check found vacancies with enable hot option", () -> {
+        step("Сhecking of found vacancies by the enabled hot vacancy filter", () -> {
             vacanciesPage.checkSearchedVacanciesIsMatchToHotFilter();
         });
     }
@@ -89,11 +94,13 @@ public class JobVacanciesFilterTests extends TestBase {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step("Choose the specific specialization", () -> {
+        step(format("Choose the specific specialization \"%s\"",
+                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
             vacanciesPage.clickToSpecializationBtn();
             vacanciesPage.chooseSpecializationOption(VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
-        step("Choose the specific location", () -> {
+        step(format("Choose the specific location \"%s\"",
+                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.clickToLocationBtn();
             vacanciesPage.chooseLocationOption(VacanciesConstants.LOCATION_FILER_VALUE);
         });
@@ -106,7 +113,10 @@ public class JobVacanciesFilterTests extends TestBase {
         step("Click search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step("Check found vacancies with filters", () -> {
+        step(format("Сhecking of found vacancies by filters: \"%s\", \"%s\"," +
+                        " enabled hot filter, enabled remote filter",
+                VacanciesConstants.SPECIALIZATION_FILER_VALUE,
+                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.checkSearchedVacanciesIsMatchToComplexFilter
                     (VacanciesConstants.SPECIALIZATION_FILER_VALUE,VacanciesConstants.LOCATION_FILER_VALUE);
         });
