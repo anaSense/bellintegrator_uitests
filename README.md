@@ -103,6 +103,10 @@ clean test
 ----
 ## Integration with Allure TestOps
 
+**Manual test cases**
+
+**Automation test cases**
+
 
 ----
 ## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
@@ -112,7 +116,13 @@ clean test
 
 ----
 ## Telegram notification with bot
+<p align="center">  
+<img src="images/screen/tg_bot_report.png" width="350"/> 
+</p>
 
 
 ----
 ## Selenoid test execution video examples
+<p align="center">
+<img title="Selenoid Video" src="images/video/video_report.gif" width="550" height="350"  alt="video">   
+</p>
