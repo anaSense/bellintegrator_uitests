@@ -88,7 +88,6 @@ clean test
 -Dbrowser=${BROWSER}
 -Dbrowser_size=${BROWSER_SIZE}
 -Dbrowser_version=${BROWSER_VERSION}
--Dcomment=${COMMENT}
 ```
 
 
