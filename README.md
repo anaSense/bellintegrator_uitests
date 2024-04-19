@@ -37,6 +37,12 @@
 <a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> </a>
 </p>
 
+- The UI autotests was written in **Java**.
+- **Gradle** was used as a builder.
+- **JUnit 5** and **Selenide** frameworks were used as test frameworks.
+- For remote run, a job in **Jenkins** with **Allure report** generation and sending the results to **Telegram** using a bot is implemented.
+- Integration with **Allure TestOps** and **Jira** is implemented
+
 
 ----
 ## **Examples of automated test cases:**
@@ -82,7 +88,6 @@ clean test
 -Dbrowser=${BROWSER}
 -Dbrowser_size=${BROWSER_SIZE}
 -Dbrowser_version=${BROWSER_VERSION}
--Dcomment=${COMMENT}
 ```
 
 
@@ -103,6 +108,10 @@ clean test
 ----
 ## Integration with Allure TestOps
 
+**Manual test cases**
+
+**Automation test cases**
+
 
 ----
 ## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
@@ -112,7 +121,13 @@ clean test
 
 ----
 ## Telegram notification with bot
+<p align="center">  
+<img src="images/screen/tg_bot_report.png" width="350"/> 
+</p>
 
 
 ----
 ## Selenoid test execution video examples
+<p align="center">
+<img title="Selenoid Video" src="images/video/video_report.gif" width="550" height="350"  alt="video">   
+</p>
