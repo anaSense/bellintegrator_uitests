@@ -37,6 +37,12 @@
 <a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> </a>
 </p>
 
+- The UI autotests was written in **Java**.
+- **Gradle** was used as a builder.
+- **JUnit 5** and **Selenide** frameworks were used as test frameworks.
+- For remote run, a job in **Jenkins** with **Allure report** generation and sending the results to **Telegram** using a bot is implemented.
+- Integration with **Allure TestOps** and **Jira** is implemented
+
 
 ----
 ## **Examples of automated test cases:**
