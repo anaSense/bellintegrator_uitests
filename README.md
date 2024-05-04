@@ -106,12 +106,20 @@ clean test
 
 
 ----
-## Integration with Allure TestOps
+## Integration with Allure TestOps ([link](https://allure.autotests.cloud/project/4178/dashboards))
+<p align="center">  
+<a href="https://allure.autotests.cloud/project/4178/dashboards"><img src="images/screen/allure_testops_main.png" alt="Allure TestOps" width="950"/></a>  
+</p>
 
 **Manual test cases**
+<p align="center">  
+<a href="https://allure.autotests.cloud/project/4178/dashboards"><img src="images/screen/allure_testops_manual.png" alt="Allure TestOps" width="950"/></a>  
+</p>
 
 **Automation test cases**
-
+<p align="center">  
+<a href="https://allure.autotests.cloud/project/4178/dashboards"><img src="images/screen/allure_testops_auto.png" alt="Allure TestOps" width="950"/></a>  
+</p>
 
 ----
 ## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
