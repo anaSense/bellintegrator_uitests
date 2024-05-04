@@ -14,14 +14,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 public class TestBase {
+
     @BeforeAll
     static void beforeAll() {
-        DriverConfig driver = ConfigFactory.create(DriverConfig.class);
+        DriverConfig driver = ConfigFactory.create(DriverConfig.class, System.getProperties());
 
-        Configuration.browserSize = System.getProperty("browser_size", driver.browserSize());
-        Configuration.baseUrl = "https://bellintegrator.ru/";
+        Configuration.browserSize = System.getProperty("browserSize", driver.browserSize());
+        Configuration.baseUrl = System.getProperty("baseUrl", driver.baseUrl());
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = System.getProperty("remote_url", driver.remoteUrl());
+        Configuration.remote = System.getProperty("remoteUrl", driver.remoteUrl());
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -39,6 +40,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Selenide.closeWindow();
+        Selenide.closeWebDriver();
     }
 }

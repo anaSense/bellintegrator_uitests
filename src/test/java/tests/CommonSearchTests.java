@@ -3,7 +3,6 @@ package tests;
 import data.SearchConstants;
 import helpers.StringsHelper;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.BasePage;
@@ -13,6 +12,9 @@ import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Feature("Common search options")
+@Story("Check common search in header")
+@Owner("egorovaa")
 public class CommonSearchTests extends TestBase {
 
     private final BasePage basePage = new BasePage();
@@ -22,9 +24,6 @@ public class CommonSearchTests extends TestBase {
     private int searchResultCountWithoutCase = 0;
 
     @Test
-    @Feature("Common search options")
-    @Story("Check common search in header")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("The upper register ignoring in search")
     void ignoringTheUpperRegisterTest() {
@@ -75,9 +74,6 @@ public class CommonSearchTests extends TestBase {
     }
 
     @Test
-    @Feature("Common search options")
-    @Story("Check common search in header")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("The error is shown when entering value < min (3 letters)")
     void errorIfEnterValueLessMinTest() {
@@ -97,9 +93,6 @@ public class CommonSearchTests extends TestBase {
     }
 
     @Test
-    @Feature("Common search options")
-    @Story("Check common search in header")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Successfully search combination of words by AND")
     void searchResultsForAndCombinationTest() {
@@ -123,8 +116,6 @@ public class CommonSearchTests extends TestBase {
     }
 
     @Test
-    @Feature("Common search options")
-    @Story("Check common search in header")
     @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Successfully clean the search line by BACKSPACE")
@@ -148,9 +139,6 @@ public class CommonSearchTests extends TestBase {
     }
 
     @Test
-    @Feature("Common search options")
-    @Story("Check common search in header")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Successfully search by exacting string")
     void searchExactingStringTest() {

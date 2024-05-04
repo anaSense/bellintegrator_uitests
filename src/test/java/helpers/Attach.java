@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
-
 public class Attach {
 
     @Attachment(value = "{attachName}", type = "image/png")

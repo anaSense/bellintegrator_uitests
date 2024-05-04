@@ -2,23 +2,21 @@ package tests;
 
 import data.VacanciesConstants;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.VacanciesPage;
 
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
-import static org.assertj.core.api.Assertions.assertThat;
 
+@Feature("Common job vacancies options")
+@Story("Check common filers for vacancies")
+@Owner("egorovaa")
 public class JobVacanciesFilterTests extends TestBase {
 
     private final VacanciesPage vacanciesPage = new VacanciesPage();
 
     @Test
-    @Feature("Common job vacancies options")
-    @Story("Check common filers for vacancies")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by specialization")
     void filterVacanciesBySpecializationTest() {
@@ -41,9 +39,6 @@ public class JobVacanciesFilterTests extends TestBase {
     }
 
     @Test
-    @Feature("Common job vacancies options")
-    @Story("Check common filers for vacancies")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by location")
     void filterVacanciesByLocationTest() {
@@ -66,9 +61,6 @@ public class JobVacanciesFilterTests extends TestBase {
     }
 
     @Test
-    @Feature("Common job vacancies options")
-    @Story("Check common filers for vacancies")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by hot option enable")
     void filterVacanciesByHotOptionTest() {
@@ -87,9 +79,6 @@ public class JobVacanciesFilterTests extends TestBase {
     }
 
     @Test
-    @Feature("Common job vacancies options")
-    @Story("Check common filers for vacancies")
-    @Owner("egorovaa")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Check filter vacancies by specialization + location + hot option enable + only remote")
     void filterVacanciesByCombinationFiltersTest() {
