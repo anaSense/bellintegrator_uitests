@@ -68,9 +68,9 @@
 
 ### **Jenkins build options:**
 
-- `BROWSER` (default browser - chrome)
-- `BROWSER_VERSION` (default browser version - 100.0)
 - `BROWSER_SIZE` (default screen size - 1920x1080)
+- `REMOTE_URL`
+- `BASE_URL`(default screen size - https://bellintegrator.ru)
 - `COMMENT` (default - Bellintegrator ui test results)
 
 
@@ -85,9 +85,9 @@ gradle clean test
 **Remote launch via Jenkins**
 ```bash
 clean test
--Dbrowser=${BROWSER}
--Dbrowser_size=${BROWSER_SIZE}
--Dbrowser_version=${BROWSER_VERSION}
+-DremoteUrl=${REMOTE_URL}
+-DbrowserSize=${BROWSER_SIZE}
+-DbaseUrl=${BASE_URL}
 ```
 
 
