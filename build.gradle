@@ -27,12 +27,11 @@ repositories {
 
 dependencies {
     testImplementation(
-            'org.aeonbits.owner:owner:1.0.4',
+            'org.aeonbits.owner:owner:1.0.12',
             'org.junit.jupiter:junit-jupiter:5.8.1',
             'com.codeborne:selenide:7.0.4',
             'io.qameta.allure:allure-selenide:2.26.0',
-            'org.assertj:assertj-core:3.25.3',
-            'org.apache.commons:commons-math3:3.6.1'
+            'org.assertj:assertj-core:3.25.3'
     )
 }
 
