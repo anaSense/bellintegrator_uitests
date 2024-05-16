@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.DriverConfig;
 import helpers.Attach;
+import helpers.PropertyReader;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -20,9 +21,11 @@ public class TestBase {
         DriverConfig driver = ConfigFactory.create(DriverConfig.class, System.getProperties());
 
         Configuration.browserSize = System.getProperty("browserSize", driver.browserSize());
-        Configuration.baseUrl = System.getProperty("baseUrl", driver.baseUrl());
+        Configuration.baseUrl = "https://bellintegrator.ru";
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("remoteUrl", driver.remoteUrl());
+
+        PropertyReader.readPropertyFile("test_data/testData.properties");
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 

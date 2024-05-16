@@ -2,7 +2,6 @@ package pages.components;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import data.VacanciesConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +9,19 @@ import java.util.List;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static helpers.PropertyReader.constantsProperties;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VacanciesTableComponent {
 
-    private final SelenideElement vacanciesTable = $(".table-vakansii"), pagerBlock = $(".pager"), nextPage = $(byText("Следующая страница"));
+    private final SelenideElement vacanciesTable = $(".table-vakansii"),
+            pagerBlock = $(".pager"),
+            nextPage = $(byText("Следующая страница"));
     private final ElementsCollection vacancyElements = $(".table-vakansii").$("tbody").$$("tr");
 
     private List<ElementsCollection> getVacanciesResultsFromAllPages() {
         List<ElementsCollection> elements = new ArrayList<ElementsCollection>();
-        assertThat(vacanciesTable.exists()).overridingErrorMessage(VacanciesConstants.EMPTY_VACANCIES_TABLE_ERROR).isTrue();
+        assertThat(vacanciesTable.exists()).overridingErrorMessage(constantsProperties.getProperty("emptyVacanciesTableError")).isTrue();
         elements.add(vacancyElements);
         if (pagerBlock.exists()) {
             pagerBlock.scrollTo();
@@ -48,21 +50,27 @@ public class VacanciesTableComponent {
 
     private void checkRemote(SelenideElement el) {
         String elementValue = el.$(".views-field-field-lokaciya").text();
-        assertThat(elementValue.contains(VacanciesConstants.REMOTE_WORK_TEXT)).isTrue();
+        assertThat(elementValue.contains(constantsProperties.getProperty("remoteWorkText"))).isTrue();
     }
 
-    public void checkSearchedVacanciesIsMatchToFilters(String specializationValue, String locationValue, boolean isHot, boolean isRemote) {
+    public void checkSearchedVacanciesIsMatchToFilters(String specializationValue, String locationValue,
+                                                       boolean isHot, boolean isRemote) {
+        String emptyVacanciesTableError = constantsProperties.getProperty("emptyVacanciesTableError");
+
         List<ElementsCollection> elementsCollections = getVacanciesResultsFromAllPages();
-        assertThat(elementsCollections.isEmpty()).overridingErrorMessage(VacanciesConstants.EMPTY_VACANCIES_TABLE_ERROR).isFalse();
-        for (int i = 0; i < elementsCollections.size(); i++) {
-            ElementsCollection tmpCollection = elementsCollections.get(i);
-            assertThat(tmpCollection.isEmpty()).overridingErrorMessage(VacanciesConstants.EMPTY_VACANCIES_TABLE_ERROR).isFalse();
-            for (int j = 0; j < tmpCollection.size(); j++) {
-                if (specializationValue != null) checkSpecialization(tmpCollection.get(j), specializationValue);
-                if (locationValue != null) checkLocation(tmpCollection.get(j), locationValue);
-                if (isHot) checkHot(tmpCollection.get(j));
-                if (isRemote) checkRemote(tmpCollection.get(j));
-            }
-        }
+        assertThat(elementsCollections.isEmpty()).overridingErrorMessage(emptyVacanciesTableError).isFalse();
+        elementsCollections.forEach(tmpCollection -> {
+            assertThat(tmpCollection.isEmpty()).overridingErrorMessage(emptyVacanciesTableError).isFalse();
+            tmpCollection.forEach(element -> {
+                if (specializationValue != null)
+                    checkSpecialization(element, specializationValue);
+                if (locationValue != null)
+                    checkLocation(element, locationValue);
+                if (isHot)
+                    checkHot(element);
+                if (isRemote)
+                    checkRemote(element);
+            });
+        });
     }
 }

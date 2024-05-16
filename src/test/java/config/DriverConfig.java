@@ -12,9 +12,4 @@ public interface DriverConfig extends Config {
     @Key("remoteUrl")
     @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
     String remoteUrl();
-
-    @Key("baseUrl")
-    @DefaultValue("https://bellintegrator.ru")
-    String baseUrl();
-
 }

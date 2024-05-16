@@ -8,8 +8,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class VacanciesPage {
-    private final SelenideElement specializationTextfield = $("#edit-field-specializaciya-target-id--2"), locationTextfield = $("#edit-field-lokaciya-target-id--2"), hotVacantionCheckbox = $("#edit-field-goryachee-value--2"), remoteVacantionCheckbox = $("#edit-field-udalennka-value--2"), searchButton = $("#views-exposed-form-vakansii-block-1").$("button");
-    private final ElementsCollection specializationElements = $("#edit-field-specializaciya-target-id--2").$$("option"), locationElements = $("#edit-field-lokaciya-target-id--2").$$("option");
+    private final SelenideElement specializationTextfield = $("#edit-field-specializaciya-target-id--2"),
+            locationTextfield = $("#edit-field-lokaciya-target-id--2"),
+            hotVacantionCheckbox = $("#edit-field-goryachee-value--2"),
+            remoteVacantionCheckbox = $("#edit-field-udalennka-value--2"),
+            searchButton = $("#views-exposed-form-vakansii-block-1").$("button");
+    private final ElementsCollection specializationElements = $("#edit-field-specializaciya-target-id--2").$$("option"),
+            locationElements = $("#edit-field-lokaciya-target-id--2").$$("option");
 
     private final VacanciesTableComponent vacanciesTableComponent = new VacanciesTableComponent();
 
@@ -46,19 +51,23 @@ public class VacanciesPage {
     }
 
     public void checkSearchedVacanciesIsMatchToSpecializationFilter(String specialization) {
-        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(specialization, null, false, false);
+        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(specialization,
+                null, false, false);
     }
 
     public void checkSearchedVacanciesIsMatchToLocationFilter(String location) {
-        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(null, location, false, false);
+        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(null,
+                location, false, false);
     }
 
     public void checkSearchedVacanciesIsMatchToHotFilter() {
-        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(null, null, true, false);
+        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(null,
+                null, true, false);
     }
 
     public void checkSearchedVacanciesIsMatchToComplexFilter(String specialization, String location) {
-        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(specialization, location, true, true);
+        vacanciesTableComponent.checkSearchedVacanciesIsMatchToFilters(specialization,
+                location, true, true);
     }
 
 }
