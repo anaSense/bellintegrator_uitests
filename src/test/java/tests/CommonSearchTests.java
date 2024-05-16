@@ -13,7 +13,7 @@ import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Feature("Common search options")
-@Story("Check common search in header")
+@Story("Check of common search in the header")
 @Owner("egorovaa")
 public class CommonSearchTests extends TestBase {
 
@@ -25,49 +25,39 @@ public class CommonSearchTests extends TestBase {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("The upper register ignoring in search")
+    @DisplayName("The uppercase letters are ignored in the search")
     void ignoringTheUpperRegisterTest() {
         step("Open start webpage", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field and press ENTER",
-                SearchConstants.SEARCH_STRING_WITH_CASE), () -> {
+        step(format("Enter text \"%s\" in search field and press ENTER", SearchConstants.SEARCH_STRING_WITH_CASE), () -> {
             basePage.enterTextToSearchFieldAndAccept(SearchConstants.SEARCH_STRING_WITH_CASE);
         });
-        step("Check that all results contain "
-                + SearchConstants.SEARCH_STRING_WITH_CASE, () -> {
+        step("Check that all results contain " + SearchConstants.SEARCH_STRING_WITH_CASE, () -> {
             searchResultPage.checkValueInSearchResult(SearchConstants.SEARCH_STRING_WITH_CASE);
         });
 
-        searchResultCountWithCase = searchResultPage.
-                getSizeOfSearchResult(SearchConstants.SEARCH_STRING_WITH_CASE);
+        searchResultCountWithCase = searchResultPage.getSizeOfSearchResult(SearchConstants.SEARCH_STRING_WITH_CASE);
 
         step("Open start webpage again", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field and press ENTER",
-                SearchConstants.SEARCH_STRING_WITHOUT_CASE), () -> {
+        step(format("Enter text \"%s\" in search field and press ENTER", SearchConstants.SEARCH_STRING_WITHOUT_CASE), () -> {
             basePage.enterTextToSearchFieldAndAccept(SearchConstants.SEARCH_STRING_WITHOUT_CASE);
         });
-        step("Check that all results contain "
-                + SearchConstants.SEARCH_STRING_WITHOUT_CASE, () -> {
+        step("Check that all results contain a " + SearchConstants.SEARCH_STRING_WITHOUT_CASE, () -> {
             searchResultPage.checkValueInSearchResult(SearchConstants.SEARCH_STRING_WITHOUT_CASE);
         });
 
-        searchResultCountWithoutCase = searchResultPage.
-                getSizeOfSearchResult(SearchConstants.SEARCH_STRING_WITHOUT_CASE);
-        step(format("Check the search by \"%s\" contains the same " +
-                "result counts as the search by {1}", SearchConstants.SEARCH_STRING_WITHOUT_CASE,
-                SearchConstants.SEARCH_STRING_WITH_CASE), () -> {
-            assertThat((searchResultCountWithCase == searchResultCountWithoutCase)
-                    && (searchResultCountWithCase != 0) &&
-                    (searchResultCountWithoutCase != 0)).isTrue();
+        searchResultCountWithoutCase = searchResultPage.getSizeOfSearchResult(SearchConstants.SEARCH_STRING_WITHOUT_CASE);
+        step(format("Check the search by \"%s\" contains the same " + "result counts as the search by \"%s\"", SearchConstants.SEARCH_STRING_WITHOUT_CASE, SearchConstants.SEARCH_STRING_WITH_CASE), () -> {
+            assertThat((searchResultCountWithCase == searchResultCountWithoutCase) && (searchResultCountWithCase != 0) && (searchResultCountWithoutCase != 0)).isTrue();
         });
 
 
@@ -80,36 +70,32 @@ public class CommonSearchTests extends TestBase {
         step("Open start webpage", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field and press ENTER",
-                SearchConstants.SEARCH_STRING_LESS_MIN), () -> {
+        step(format("Enter text \"%s\" in search field and press ENTER", SearchConstants.SEARCH_STRING_LESS_MIN), () -> {
             basePage.enterTextToSearchFieldAndAccept(SearchConstants.SEARCH_STRING_LESS_MIN);
         });
-        step("Check error message is visible", () -> {
+        step("Check that the error message is visible", () -> {
             searchResultPage.checkErrorMessageIsVisible(SearchConstants.SEARCH_ERROR_TEXT);
         });
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Successfully search combination of words by AND")
+    @DisplayName("Successful search of word combination using AND")
     void searchResultsForAndCombinationTest() {
         step("Open start webpage", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field and press ENTER",
-                SearchConstants.SEARCH_AND_COMBINATION), () -> {
+        step(format("Enter text \"%s\" in search field and press ENTER", SearchConstants.SEARCH_AND_COMBINATION), () -> {
             basePage.enterTextToSearchFieldAndAccept(SearchConstants.SEARCH_AND_COMBINATION);
         });
-        step("Check that all results contain combination of " +
-                SearchConstants.SEARCH_AND_COMBINATION, () -> {
-            String[] searchWorlds = StringsHelper.divideStringBySeparator(
-                    SearchConstants.SEARCH_AND_COMBINATION, "AND");
+        step("Check that all results contain a combination of " + SearchConstants.SEARCH_AND_COMBINATION, () -> {
+            String[] searchWorlds = StringsHelper.divideStringBySeparator(SearchConstants.SEARCH_AND_COMBINATION, "AND");
             searchResultPage.checkValueInSearchResultWithCombination(searchWorlds);
         });
 
@@ -123,37 +109,34 @@ public class CommonSearchTests extends TestBase {
         step("Open start webpage", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field",
-                SearchConstants.SEARCH_STRING_WITHOUT_CASE), () -> {
+        step(format("Enter text \"%s\" in search field", SearchConstants.SEARCH_STRING_WITHOUT_CASE), () -> {
             basePage.enterTextToSearchField(SearchConstants.SEARCH_STRING_WITHOUT_CASE);
         });
-        step("Clear text from search field by BACK SPACE", () -> {
+        step("Clear text from search field by BACKSPACE", () -> {
             basePage.pressBackspace(SearchConstants.SEARCH_STRING_WITHOUT_CASE.length());
         });
-        step("Сheck that the search field is empty ", () -> {
+        step("Сheck that the search field is empty", () -> {
             basePage.checkIsSearchFieldEmpty();
         });
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Successfully search by exacting string")
+    @DisplayName("Successful search by exacting string")
     void searchExactingStringTest() {
         step("Open start webpage", () -> {
             basePage.openPage();
         });
-        step("Click to the search button", () -> {
+        step("Click on the search button", () -> {
             basePage.clickToSearchBtn();
         });
-        step(format("Enter text \"%s\" in search field and press ENTER",
-                SearchConstants.SEARCH_EXACTING_TEXT), () -> {
+        step(format("Enter text \"%s\" in search field and press ENTER", SearchConstants.SEARCH_EXACTING_TEXT), () -> {
             basePage.enterTextToSearchFieldAndAccept(SearchConstants.SEARCH_EXACTING_TEXT);
         });
-        step("Check that all results contain " +
-                SearchConstants.SEARCH_EXACTING_TEXT, () -> {
+        step("Check that all results contain a " + SearchConstants.SEARCH_EXACTING_TEXT, () -> {
             String rareString = SearchConstants.SEARCH_EXACTING_TEXT.replace("\"", "");
             searchResultPage.checkValueInSearchResult(rareString);
         });

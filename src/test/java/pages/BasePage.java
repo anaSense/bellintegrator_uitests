@@ -7,8 +7,7 @@ import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BasePage {
-    private final SelenideElement searchOpenBtn = $("#search-open"),
-            searchInput = $("#search").$("input");
+    private final SelenideElement searchOpenBtn = $("#search-open"), searchInput = $("#search").$("input");
 
 
     public void openPage() {
@@ -28,7 +27,7 @@ public class BasePage {
     }
 
     public void pressBackspace(int count) {
-        for(int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             searchInput.sendKeys(Keys.BACK_SPACE);
         }
     }

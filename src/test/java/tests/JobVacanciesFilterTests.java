@@ -10,7 +10,7 @@ import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
 @Feature("Common job vacancies options")
-@Story("Check common filers for vacancies")
+@Story("Check the common filters for vacancies")
 @Owner("egorovaa")
 public class JobVacanciesFilterTests extends TestBase {
 
@@ -18,98 +18,86 @@ public class JobVacanciesFilterTests extends TestBase {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Check filter vacancies by specialization")
+    @DisplayName("Check filtering vacancies by specialization")
     void filterVacanciesBySpecializationTest() {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step(format("Choose the specific specialization \"%s\"",
-                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
+        step(format("Choose the specific specialization \"%s\"", VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
             vacanciesPage.clickToSpecializationBtn();
             vacanciesPage.chooseSpecializationOption(VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
-        step("Click search button", () -> {
+        step("Click on the search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step(format("Сhecking of found vacancies by filter \"%s\"",
-                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
-            vacanciesPage.checkSearchedVacanciesIsMatchToSpecializationFilter
-                    (VacanciesConstants.SPECIALIZATION_FILER_VALUE);
+        step(format("Сheck the found vacancies using filter \"%s\"", VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
+            vacanciesPage.checkSearchedVacanciesIsMatchToSpecializationFilter(VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Check filter vacancies by location")
+    @DisplayName("Check filtering vacancies by location")
     void filterVacanciesByLocationTest() {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step(format("Choose the specific location \"%s\"",
-                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
+        step(format("Choose the specific location \"%s\"", VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.clickToLocationBtn();
             vacanciesPage.chooseLocationOption(VacanciesConstants.LOCATION_FILER_VALUE);
         });
-        step("Click search button", () -> {
+        step("Click on the search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step(format("Сhecking of found vacancies by filter \"%s\"",
-                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
-            vacanciesPage.checkSearchedVacanciesIsMatchToLocationFilter
-                    (VacanciesConstants.LOCATION_FILER_VALUE);
+        step(format("Сheck the found vacancies using filter \"%s\"", VacanciesConstants.LOCATION_FILER_VALUE), () -> {
+            vacanciesPage.checkSearchedVacanciesIsMatchToLocationFilter(VacanciesConstants.LOCATION_FILER_VALUE);
         });
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Check filter vacancies by hot option enable")
+    @DisplayName("Check filtering vacancies by \"hot\" option enabled")
     void filterVacanciesByHotOptionTest() {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step("Turn on hot vacation radio button", () -> {
+        step("Turn on \"hot\" vacation radio button", () -> {
             vacanciesPage.chooseHotVacationsCheckbox();
         });
-        step("Click search button", () -> {
+        step("Click on the search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step("Сhecking of found vacancies by the enabled hot vacancy filter", () -> {
+        step("Сheck the found vacancies by the enabled \"hot\" vacancy filter", () -> {
             vacanciesPage.checkSearchedVacanciesIsMatchToHotFilter();
         });
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Check filter vacancies by specialization + location + hot option enable + only remote")
+    @DisplayName("Check filtering vacancies by specialization + location + \"hot\" option enable + only remote")
     void filterVacanciesByCombinationFiltersTest() {
         step("Open vacancies webpage", () -> {
             vacanciesPage.openPage();
         });
-        step(format("Choose the specific specialization \"%s\"",
-                VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
+        step(format("Choose the specific specialization \"%s\"", VacanciesConstants.SPECIALIZATION_FILER_VALUE), () -> {
             vacanciesPage.clickToSpecializationBtn();
             vacanciesPage.chooseSpecializationOption(VacanciesConstants.SPECIALIZATION_FILER_VALUE);
         });
-        step(format("Choose the specific location \"%s\"",
-                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
+        step(format("Choose the specific location \"%s\"", VacanciesConstants.LOCATION_FILER_VALUE), () -> {
             vacanciesPage.clickToLocationBtn();
             vacanciesPage.chooseLocationOption(VacanciesConstants.LOCATION_FILER_VALUE);
         });
-        step("Turn on hot vacation radio button", () -> {
+        step("Turn on \"hot\" vacation radio button", () -> {
             vacanciesPage.chooseHotVacationsCheckbox();
         });
         step("Turn on remote option", () -> {
             vacanciesPage.chooseRemoteVacationsCheckbox();
         });
-        step("Click search button", () -> {
+        step("Click on the search button", () -> {
             vacanciesPage.clickSearchButton();
         });
-        step(format("Сhecking of found vacancies by filters: \"%s\", \"%s\"," +
-                        " enabled hot filter, enabled remote filter",
-                VacanciesConstants.SPECIALIZATION_FILER_VALUE,
-                VacanciesConstants.LOCATION_FILER_VALUE), () -> {
-            vacanciesPage.checkSearchedVacanciesIsMatchToComplexFilter
-                    (VacanciesConstants.SPECIALIZATION_FILER_VALUE,VacanciesConstants.LOCATION_FILER_VALUE);
+        step(format("Сheck the found vacancies by filters: \"%s\", \"%s\"," + " enabled \"hot\" filter, enabled remote filter", VacanciesConstants.SPECIALIZATION_FILER_VALUE, VacanciesConstants.LOCATION_FILER_VALUE), () -> {
+            vacanciesPage.checkSearchedVacanciesIsMatchToComplexFilter(VacanciesConstants.SPECIALIZATION_FILER_VALUE, VacanciesConstants.LOCATION_FILER_VALUE);
         });
     }
 }
