@@ -1,27 +1,28 @@
-# Test Automation Project for [Bellintegrator](https://bellintegrator.ru/)
+# Test Automation Project for [Bell Integrator](https://bellintegrator.ru/)
 
 ## **Contents:** ##
 
-* Technologies and tools
+* <a href="#tools">Technologies and tools</a>
 
-* Examples of automated test cases
+* <a href="#cases">Examples of automated test cases</a>
 
-* Build in Jenkins
+* <a href="#jenkins">Build in Jenkins</a>
 
-* Run from Terminal
+* <a href="#console">Run from Terminal</a>
 
-* Allure report
+* <a href="#allure">Allure report</a>
 
-* Integration with Allure TestOps
+* <a href="#testops">Integration with Allure TestOps</a>
 
-* Integration with Jira
+* <a href="#jira">Integration with Jira</a>
 
-* Telegram notification with bot
+* <a href="#telegram">Telegram notification with bot</a>
 
-* Selenoid test execution video examples
+* <a href="#video">Selenoid test execution video examples</a>
 
 
 -----
+<a id="tools"></a>
 ## <a name="Technologies and tools">**Technologies and tools:**</a>
 
 <p align="center">
@@ -37,30 +38,32 @@
 <a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> </a>
 </p>
 
-- The UI autotests was written in **Java**.
+- The UI autotests were written in **Java**.
 - **Gradle** was used as a builder.
 - **JUnit 5** and **Selenide** frameworks were used as test frameworks.
-- For remote run, a job in **Jenkins** with **Allure report** generation and sending the results to **Telegram** using a bot is implemented.
-- Integration with **Allure TestOps** and **Jira** is implemented
+- For remote run, a job in **Jenkins** with **Allure report** generation and result send to **Telegram** via a bot has been implemented.
+- Integration with **Allure TestOps** and **Jira** has been established.
 
 
 ----
+<a id="cases"></a>
 ## **Examples of automated test cases:**
 **Site search**
 - ✅ Checking that the search is case-insensitive  
-- ✅ An error is displayed when entering a search query < 3 characters  
-- ✅ Checking a search with a complex search query with AND   
+- ✅ An error is displayed when entering a search query of fewer than 3 characters  
+- ✅ Checking a search with a complex search query using "AND"   
 - ✅ Checking that the search text field can be cleared with the Backspace key   
 - ✅ Checking exact search using quotation marks  
 
 **Vacancy filters**
 - ✅ Checking that vacancies are correctly filtered by specialty  
 - ✅ Checking that vacancies are correctly filtered by location  
-- ✅ Checking that vacancies are correctly filtered by hot option  
-- ✅ Checking that vacancies are correctly filtered by combination of filters: specialty + location + enabled hot option + enabled remote option  
+- ✅ Checking that vacancies are correctly filtered by "hot" option  
+- ✅ Checking that vacancies are correctly filtered by a combination of filters: specialty + location + enabled "hot" option + enabled remote option  
 
 
 ----
+<a id="jenkins"></a>
 ## Build in Jenkins ([link](https://jenkins.autotests.cloud/job/egorovaa_uitests_17/))
 <p align="center">  
 <a href="https://jenkins.autotests.cloud/job/egorovaa_uitests_17/"><img src="images/screen/jenkins_report.png" alt="Jenkins" width="950"/></a>  
@@ -75,6 +78,7 @@
 
 
 ----
+<a id="console"></a>
 ## Run from Terminal
 ___
 **Local launch**
@@ -92,6 +96,7 @@ clean test
 
 
 ----
+<a id="allure"></a>
 ## Allure report ([link](https://jenkins.autotests.cloud/job/egorovaa_uitests_17/allure/))
 
 **Main report page**
@@ -106,6 +111,7 @@ clean test
 
 
 ----
+<a id="testops"></a>
 ## Integration with Allure TestOps ([link](https://allure.autotests.cloud/project/4178/dashboards))
 <p align="center">  
 <a href="https://allure.autotests.cloud/project/4178/dashboards"><img src="images/screen/allure_testops_main.png" alt="Allure TestOps" width="950"/></a>  
@@ -122,12 +128,14 @@ clean test
 </p>
 
 ----
+<a id="jira"></a>
 ## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
 <p align="center">  
 <a href="https://jira.autotests.cloud/browse/HOMEWORK-1191"><img src="images/screen/jira_task.png" alt="Jira" width="950"/></a>  
 </p>
 
 ----
+<a id="telegram"></a>
 ## Telegram notification with bot
 <p align="center">  
 <img src="images/screen/tg_bot_report.png" width="350"/> 
@@ -135,6 +143,7 @@ clean test
 
 
 ----
+<a id="video"></a>
 ## Selenoid test execution video examples
 <p align="center">
 <img title="Selenoid Video" src="images/video/video_report.gif" width="550" height="350"  alt="video">   
