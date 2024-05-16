@@ -14,7 +14,8 @@ public class SearchResultPage {
 
     public void checkValueInSearchResult(String searchString) {
         for (int i = 0; i < searchResultElements.size(); i++) {
-            String searchResult = searchResultElements.get(i).$(".search-result__snippet").$("strong").innerText();
+            String searchResult = searchResultElements.get(i).$(".search-result__snippet")
+                    .$("strong").innerText();
             assertThat(searchResult.compareToIgnoreCase(searchString)).isEqualTo(0);
         }
     }
@@ -24,7 +25,8 @@ public class SearchResultPage {
         boolean needFinishСycle = false;
         for (int i = 0; i < searchResultElements.size(); i++) {
             if (needFinishСycle) break;
-            ElementsCollection results = searchResultElements.get(i).$(".search-result__snippet").$$("strong");
+            ElementsCollection results = searchResultElements.get(i).$(".search-result__snippet")
+                    .$$("strong");
             boolean[] stringsExist = new boolean[expectedResults.length];
             for (int j = 0; j < results.size(); j++) {
                 String currentValue = results.get(j).innerText();

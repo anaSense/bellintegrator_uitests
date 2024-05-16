@@ -14,7 +14,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class VacanciesTableComponent {
 
-    private final SelenideElement vacanciesTable = $(".table-vakansii"), pagerBlock = $(".pager"), nextPage = $(byText("Следующая страница"));
+    private final SelenideElement vacanciesTable = $(".table-vakansii"),
+            pagerBlock = $(".pager"),
+            nextPage = $(byText("Следующая страница"));
     private final ElementsCollection vacancyElements = $(".table-vakansii").$("tbody").$$("tr");
 
     private List<ElementsCollection> getVacanciesResultsFromAllPages() {
@@ -51,7 +53,8 @@ public class VacanciesTableComponent {
         assertThat(elementValue.contains(VacanciesConstants.REMOTE_WORK_TEXT)).isTrue();
     }
 
-    public void checkSearchedVacanciesIsMatchToFilters(String specializationValue, String locationValue, boolean isHot, boolean isRemote) {
+    public void checkSearchedVacanciesIsMatchToFilters(String specializationValue, String locationValue,
+                                                       boolean isHot, boolean isRemote) {
         List<ElementsCollection> elementsCollections = getVacanciesResultsFromAllPages();
         assertThat(elementsCollections.isEmpty()).overridingErrorMessage(VacanciesConstants.EMPTY_VACANCIES_TABLE_ERROR).isFalse();
         for (int i = 0; i < elementsCollections.size(); i++) {
