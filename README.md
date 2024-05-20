@@ -90,7 +90,6 @@ gradle clean test
 clean test
 -DremoteUrl=${REMOTE_URL}
 -DbrowserSize=${BROWSER_SIZE}
--DbaseUrl=${BASE_URL}
 ```
 
 
