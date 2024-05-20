@@ -73,7 +73,6 @@
 
 - `BROWSER_SIZE` (default screen size - 1920x1080)
 - `REMOTE_URL`
-- `BASE_URL`(default url - https://bellintegrator.ru)
 - `COMMENT` (default - Bellintegrator ui test results)
 
 
